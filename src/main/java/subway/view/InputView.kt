@@ -12,10 +12,23 @@ object InputView {
 
     fun readManageStationMenuOption():String{
         val input = scanner.nextLine()
+        return Validator.checkManageStationMenuOptionInput(input)
+    }
+
+    fun readManageLineMenuOption():String{
+        val input = scanner.nextLine()
         return Validator.checkManageLineMenuOptionInput(input)
     }
 
     fun readStationName():String{
+        return scanner.nextLine()
+    }
+
+    fun readLineName():String{
+        return scanner.nextLine()
+    }
+
+    fun readTerminal():String{
         return scanner.nextLine()
     }
 }

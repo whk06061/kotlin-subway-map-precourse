@@ -18,7 +18,7 @@ object ManageStationMenu {
         val stationName = InputView.readStationName()
         if (checkAddPossible(stationName)) {
             StationRepository.addStation(Station(stationName))
-            OutputView.printAddSuccessMent()
+            OutputView.printAddStationSuccessMent()
         }
     }
 
@@ -33,7 +33,7 @@ object ManageStationMenu {
         val stationName = InputView.readStationName()
         if (checkRemovePossible(stationName)) {
             if (StationRepository.deleteStation(stationName)) {
-                OutputView.printRemoveSuccessMent()
+                OutputView.printRemoveStationSuccessMent()
                 return
             }
             OutputView.printErrorMessage(ErrorMessage.NOT_EXIST_STATION.getMessage())

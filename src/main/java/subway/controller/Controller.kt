@@ -40,7 +40,12 @@ class Controller {
     }
 
     private fun goToManageLineMenu() {
-        println("노선 관리 메뉴로 들어옴")
+        when (ManageLineMenu.readManageLineMenuOption()) {
+            "1" -> ManageLineMenu.addLine()
+            "2" -> ManageLineMenu.removeLine()
+            "3" -> ManageLineMenu.printLine()
+            else -> return
+        }
     }
 
     private fun goToManageSectionMenu() {
