@@ -138,13 +138,13 @@ object OutputView {
     }
 
     fun printLines(lines: List<Line>) {
-        println(StationMenuMent.PRINT_STATIONS_MENT.getMessage())
+        println(LineMenuMent.PRINT_LINES_MENT.getMessage())
         lines.forEach { println("${Common.PREFIX_RESULT.getMessage()} ${it.name}") }
     }
 
     fun printMap(line: Line) {
         println("${Common.PREFIX_RESULT.getMessage()} ${line.name}")
-        println("---")
+        println("${Common.PREFIX_RESULT.getMessage()} ---")
         line.stations().forEach {println("${Common.PREFIX_RESULT.getMessage()} ${it.name}")
         }
         println()
