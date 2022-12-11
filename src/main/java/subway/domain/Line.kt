@@ -15,4 +15,12 @@ class Line( // 추가 기능 구현
     fun addStation(station: Station) {
         stations.add(station)
     }
+
+    fun addSection(station: Station, index: Int) {
+        stations.add(index - 1, station)
+    }
+
+    fun deleteSection(station: Station) {
+        stations.removeIf { it.name == station.name }
+    }
 }

@@ -1,6 +1,6 @@
 package subway.utils.constants
 
-enum class ManageStationMenuMent(private val message: String) {
+enum class StationMenuMent(private val message: String) {
     PRINT_MENU_NAME("${Common.PREFIX_MANUAL.getMessage()} 역 관리 화면"),
     MENU_ADD_STATION("1. 역 등록"),
     MENU_REMOVE_STATION("2. 역 삭제"),

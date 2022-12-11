@@ -1,16 +1,19 @@
-package subway.domain
+package subway.controller
 
+import subway.domain.LineRepository
+import subway.domain.Station
+import subway.domain.StationRepository
 import subway.utils.RepeatInputProcess
 import subway.utils.constants.ErrorMessage
 import subway.view.InputView
 import subway.view.OutputView
 
-object ManageStationMenu {
+class StationMenuController {
 
-    fun readManageStationMenuOption(): String {
-        OutputView.printManageStationMenu()
+    fun readStationMenuOption(): String {
+        OutputView.printStationMenu()
         OutputView.printInputFunctionOptionMent()
-        return RepeatInputProcess.repeat { InputView.readManageStationMenuOption() } as String
+        return RepeatInputProcess.repeat { InputView.readStationMenuOption() } as String
     }
 
     fun addStation() {

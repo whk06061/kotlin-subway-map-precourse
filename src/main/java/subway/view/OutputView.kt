@@ -1,12 +1,8 @@
 package subway.view
 
 import subway.domain.Line
-import subway.domain.ManageStationMenu
 import subway.domain.Station
-import subway.utils.constants.Common
-import subway.utils.constants.MainMenuMent
-import subway.utils.constants.ManageLineMenuMent
-import subway.utils.constants.ManageStationMenuMent
+import subway.utils.constants.*
 
 object OutputView {
 
@@ -21,44 +17,78 @@ object OutputView {
         println()
     }
 
-    fun printManageStationMenu() {
+    fun printStationMenu() {
         println()
-        println(ManageStationMenuMent.PRINT_MENU_NAME.getMessage())
-        println(ManageStationMenuMent.MENU_ADD_STATION.getMessage())
-        println(ManageStationMenuMent.MENU_REMOVE_STATION.getMessage())
-        println(ManageStationMenuMent.MENU_PRINT_STATION.getMessage())
-        println(ManageStationMenuMent.MENU_BACK.getMessage())
+        println(StationMenuMent.PRINT_MENU_NAME.getMessage())
+        println(StationMenuMent.MENU_ADD_STATION.getMessage())
+        println(StationMenuMent.MENU_REMOVE_STATION.getMessage())
+        println(StationMenuMent.MENU_PRINT_STATION.getMessage())
+        println(StationMenuMent.MENU_BACK.getMessage())
         println()
     }
 
-    fun printManageLineMenu() {
+    fun printLineMenu() {
         println()
-        println(ManageLineMenuMent.PRINT_MENU_NAME.getMessage())
-        println(ManageLineMenuMent.MENU_ADD_LINE.getMessage())
-        println(ManageLineMenuMent.MENU_REMOVE_LINE.getMessage())
-        println(ManageLineMenuMent.MENU_PRINT_LINE.getMessage())
-        println(ManageLineMenuMent.MENU_BACK.getMessage())
+        println(LineMenuMent.PRINT_MENU_NAME.getMessage())
+        println(LineMenuMent.MENU_ADD_LINE.getMessage())
+        println(LineMenuMent.MENU_REMOVE_LINE.getMessage())
+        println(LineMenuMent.MENU_PRINT_LINE.getMessage())
+        println(LineMenuMent.MENU_BACK.getMessage())
+        println()
+    }
+
+    fun printSectionMenu() {
+        println()
+        println(SectionMenuMent.PRINT_MENU_NAME.getMessage())
+        println(SectionMenuMent.MENU_ADD_SECTION.getMessage())
+        println(SectionMenuMent.MENU_REMOVE_SECTION.getMessage())
+        println(SectionMenuMent.MENU_BACK.getMessage())
         println()
     }
 
     fun printAddStationMent() {
         println()
-        println(ManageStationMenuMent.INPUT_ADD_STATION.getMessage())
+        println(StationMenuMent.INPUT_ADD_STATION.getMessage())
     }
 
     fun printAddLineMent() {
         println()
-        println(ManageLineMenuMent.INPUT_ADD_LINE.getMessage())
+        println(LineMenuMent.INPUT_ADD_LINE.getMessage())
+    }
+
+    fun printInputSectionLineMent() {
+        println()
+        println(SectionMenuMent.INPUT_LINE.getMessage())
+    }
+
+    fun printInputDeleteSectionLineMent() {
+        println()
+        println(SectionMenuMent.INPUT_DELETE_SECTION_LINE.getMessage())
+    }
+
+    fun printInputDeleteSectionStationMent() {
+        println()
+        println(SectionMenuMent.INPUT_DELETE_SECTION_STATION.getMessage())
+    }
+
+    fun printInputSectionStationMent() {
+        println()
+        println(SectionMenuMent.INPUT_STATION.getMessage())
+    }
+
+    fun printInputSectionIndexMent() {
+        println()
+        println(SectionMenuMent.INPUT_INDEX.getMessage())
     }
 
     fun printRemoveStationMent() {
         println()
-        println(ManageStationMenuMent.INPUT_REMOVE_STATION.getMessage())
+        println(StationMenuMent.INPUT_REMOVE_STATION.getMessage())
     }
 
     fun printRemoveLineMent() {
         println()
-        println(ManageLineMenuMent.INPUT_REMOVE_LINE.getMessage())
+        println(LineMenuMent.INPUT_REMOVE_LINE.getMessage())
     }
 
     fun printInputFunctionOptionMent() {
@@ -66,27 +96,35 @@ object OutputView {
     }
 
     fun printInputUpTerminal() {
-        println(ManageLineMenuMent.INPUT_UP_TERMINAL.getMessage())
+        println(LineMenuMent.INPUT_UP_TERMINAL.getMessage())
     }
 
     fun printInputDownTerminal() {
-        println(ManageLineMenuMent.INPUT_DOWN_TERMINAL.getMessage())
+        println(LineMenuMent.INPUT_DOWN_TERMINAL.getMessage())
     }
 
     fun printAddStationSuccessMent() {
-        println(ManageStationMenuMent.SUCCESS_ADD_STATION_MENT.getMessage())
+        println(StationMenuMent.SUCCESS_ADD_STATION_MENT.getMessage())
     }
 
     fun printRemoveStationSuccessMent() {
-        println(ManageStationMenuMent.SUCCESS_REMOVE_STATION_MENT.getMessage())
+        println(StationMenuMent.SUCCESS_REMOVE_STATION_MENT.getMessage())
     }
 
     fun printRemoveLineSuccessMent() {
-        println(ManageLineMenuMent.SUCCESS_REMOVE_LINE_MENT.getMessage())
+        println(LineMenuMent.SUCCESS_REMOVE_LINE_MENT.getMessage())
     }
 
     fun printAddLineSuccessMent() {
-        println(ManageLineMenuMent.SUCCESS_ADD_LINE_MENT.getMessage())
+        println(LineMenuMent.SUCCESS_ADD_LINE_MENT.getMessage())
+    }
+
+    fun printAddSectionSuccessMent() {
+        println(SectionMenuMent.SUCCESS_ADD_SECTION_MENT.getMessage())
+    }
+
+    fun printDeleteSectionSuccessMent() {
+        println(SectionMenuMent.SUCCESS_DELETE_MENT.getMessage())
     }
 
     fun printErrorMessage(message: String) {
@@ -95,12 +133,12 @@ object OutputView {
     }
 
     fun printStations(stations: List<Station>) {
-        println(ManageStationMenuMent.PRINT_STATIONS_MENT.getMessage())
+        println(StationMenuMent.PRINT_STATIONS_MENT.getMessage())
         stations.forEach { println("${Common.PREFIX_RESULT.getMessage()} ${it.name}") }
     }
 
     fun printLines(lines: List<Line>) {
-        println(ManageStationMenuMent.PRINT_STATIONS_MENT.getMessage())
+        println(StationMenuMent.PRINT_STATIONS_MENT.getMessage())
         lines.forEach { println("${Common.PREFIX_RESULT.getMessage()} ${it.name}") }
     }
 }

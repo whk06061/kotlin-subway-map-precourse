@@ -10,25 +10,35 @@ object InputView {
         return Validator.checkMainMenuOptionInput(input)
     }
 
-    fun readManageStationMenuOption():String{
+    fun readStationMenuOption(): String {
         val input = scanner.nextLine()
-        return Validator.checkManageStationMenuOptionInput(input)
+        return Validator.checkStationMenuOptionInput(input)
     }
 
-    fun readManageLineMenuOption():String{
+    fun readLineMenuOption(): String {
         val input = scanner.nextLine()
-        return Validator.checkManageLineMenuOptionInput(input)
+        return Validator.checkLineMenuOptionInput(input)
     }
 
-    fun readStationName():String{
+    fun readSectionMenuOption(): String {
+        val input = scanner.nextLine()
+        return Validator.checkSectionMenuOptionInput(input)
+    }
+
+    fun readStationName(): String {
         return scanner.nextLine()
     }
 
-    fun readLineName():String{
+    fun readSectionIndex(): Int {
+        val input = scanner.nextLine()
+        return Validator.checkSectionIndexInput(input)
+    }
+
+    fun readLineName(): String {
         return scanner.nextLine()
     }
 
-    fun readTerminal():String{
+    fun readTerminal(): String {
         return scanner.nextLine()
     }
 }

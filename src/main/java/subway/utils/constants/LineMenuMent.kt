@@ -1,6 +1,6 @@
 package subway.utils.constants
 
-enum class ManageLineMenuMent(private val message: String) {
+enum class LineMenuMent(private val message: String) {
     PRINT_MENU_NAME("${Common.PREFIX_MANUAL.getMessage()} 노선 관리 화면"),
     MENU_ADD_LINE("1. 노선 등록"),
     MENU_REMOVE_LINE("2. 노선 삭제"),

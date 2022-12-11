@@ -31,28 +31,34 @@ class Controller {
     }
 
     private fun goToManageStationMenu() {
-        when (ManageStationMenu.readManageStationMenuOption()) {
-            "1" -> ManageStationMenu.addStation()
-            "2" -> ManageStationMenu.removeStation()
-            "3" -> ManageStationMenu.printStation()
+        val stationMenuCollection = StationMenuController()
+        when (stationMenuCollection.readStationMenuOption()) {
+            "1" -> stationMenuCollection.addStation()
+            "2" -> stationMenuCollection.removeStation()
+            "3" -> stationMenuCollection.printStation()
             else -> return
         }
     }
 
     private fun goToManageLineMenu() {
-        when (ManageLineMenu.readManageLineMenuOption()) {
-            "1" -> ManageLineMenu.addLine()
-            "2" -> ManageLineMenu.removeLine()
-            "3" -> ManageLineMenu.printLine()
+        val lineMenuController = LineMenuController()
+        when (lineMenuController.readlineMenuOption()) {
+            "1" -> lineMenuController.addLine()
+            "2" -> lineMenuController.removeLine()
+            "3" -> lineMenuController.printLine()
             else -> return
         }
     }
 
     private fun goToManageSectionMenu() {
-        println("구간 관리 메뉴로 들어옴")
+        val sectionMenuController = SectionMenuController()
+        when (sectionMenuController.readSectionMenuOption()) {
+            "1" -> sectionMenuController.addSection()
+            "2" -> sectionMenuController.removeSection()
+            else -> return
+        }
     }
 
     private fun printMap() {
-        println("지하철 노선도 출력")
     }
 }

@@ -11,17 +11,28 @@ object Validator {
         return input
     }
 
-    fun checkManageStationMenuOptionInput(input: String): String {
+    fun checkStationMenuOptionInput(input: String): String {
         if ((input != "1") and (input != "2") and (input != "3") and (input != "B")) throw IllegalArgumentException(
             ErrorMessage.INVALID_OPTION.getMessage()
         )
         return input
     }
 
-    fun checkManageLineMenuOptionInput(input: String): String {
+    fun checkLineMenuOptionInput(input: String): String {
         if ((input != "1") and (input != "2") and (input != "3") and (input != "B")) throw IllegalArgumentException(
             ErrorMessage.INVALID_OPTION.getMessage()
         )
         return input
+    }
+
+    fun checkSectionMenuOptionInput(input: String): String {
+        if ((input != "1") and (input != "2") and (input != "B")) throw IllegalArgumentException(
+            ErrorMessage.INVALID_OPTION.getMessage()
+        )
+        return input
+    }
+
+    fun checkSectionIndexInput(input: String): Int {
+        return input.toInt()
     }
 }
