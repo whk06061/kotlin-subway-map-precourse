@@ -1,4 +1,4 @@
-package subway.constants
+package subway.utils.constants
 
 enum class Common(private val message: String) {
     PREFIX_MANUAL("##"),

@@ -1,4 +1,4 @@
-package subway.constants
+package subway.utils.constants
 
 enum class ManageStationMenuMent(private val message: String) {
     PRINT_MENU_NAME("${Common.PREFIX_MANUAL.getMessage()} 역 관리 화면"),

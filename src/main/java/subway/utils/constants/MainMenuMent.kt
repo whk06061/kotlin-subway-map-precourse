@@ -1,4 +1,4 @@
-package subway.constants
+package subway.utils.constants
 
 enum class MainMenuMent(private val message: String) {
     PRINT_MENU_NAME("${Common.PREFIX_MANUAL.getMessage()} 메인 화면"),
