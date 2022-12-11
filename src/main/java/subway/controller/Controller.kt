@@ -7,12 +7,9 @@ import subway.view.OutputView
 
 class Controller {
 
-    private val outputView = OutputView()
-    private val inputView = InputView()
-
     fun operate() {
         while (true) {
-            when (readMainMenuSelect()) {
+            when (readMainMenuOption()) {
                 "1" -> goToManageStationMenu()
                 "2" -> goToManageLineMenu()
                 "3" -> goToManageSectionMenu()
@@ -27,14 +24,19 @@ class Controller {
         init.initStationToLine(init.initStation(), init.initLine())
     }
 
-    private fun readMainMenuSelect(): String {
-        outputView.printMainMenu()
-        outputView.printInputFunctionOptionMent()
-        return RepeatInputProcess.repeat { inputView.readFunctionOption() } as String
+    private fun readMainMenuOption(): String {
+        OutputView.printMainMenu()
+        OutputView.printInputFunctionOptionMent()
+        return RepeatInputProcess.repeat { InputView.readMainMenuOption() } as String
     }
 
     private fun goToManageStationMenu() {
-        println("역 관리 메뉴로 들어옴")
+        when (ManageStationMenu.readManageStationMenuOption()) {
+            "1" -> ManageStationMenu.addStation()
+            "2" -> ManageStationMenu.removeStation()
+            "3" -> ManageStationMenu.printStation()
+            else -> return
+        }
     }
 
     private fun goToManageLineMenu() {

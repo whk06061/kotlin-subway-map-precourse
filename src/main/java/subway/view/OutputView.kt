@@ -1,22 +1,41 @@
 package subway.view
 
+import subway.domain.ManageStationMenu
 import subway.utils.constants.Common
 import subway.utils.constants.MainMenuMent
+import subway.utils.constants.ManageStationMenuMent
 
-class OutputView {
+object OutputView {
 
     fun printMainMenu() {
         println(MainMenuMent.PRINT_MENU_NAME.getMessage())
-        println(MainMenuMent.NAME_MANAGE_STATION.getMessage())
-        println(MainMenuMent.NAME_MANAGE_LINE.getMessage())
-        println(MainMenuMent.NAME_MANAGE_SECTION.getMessage())
-        println(MainMenuMent.NAME_PRINT_MAP.getMessage())
-        println(MainMenuMent.NAME_QUIT.getMessage())
+        println(MainMenuMent.MENU_MANAGE_STATION.getMessage())
+        println(MainMenuMent.MENU_MANAGE_LINE.getMessage())
+        println(MainMenuMent.MENU_MANAGE_SECTION.getMessage())
+        println(MainMenuMent.MENU_PRINT_MAP.getMessage())
+        println(MainMenuMent.MENU_QUIT.getMessage())
         println()
     }
 
+    fun printManageStationMenu(){
+        println(ManageStationMenuMent.PRINT_MENU_NAME.getMessage())
+        println(ManageStationMenuMent.MENU_ADD_STATION.getMessage())
+        println(ManageStationMenuMent.MENU_REMOVE_STATION.getMessage())
+        println(ManageStationMenuMent.MENU_PRINT_STATION.getMessage())
+        println(ManageStationMenuMent.MENU_BACK.getMessage())
+        println()
+    }
+
+    fun printAddStationMent(){
+        println(ManageStationMenuMent.ADD_STATION_MENT.getMessage())
+    }
+
+    fun printRemoveStationMent(){
+        println(ManageStationMenuMent.REMOVE_STATION_MENT.getMessage())
+    }
+
     fun printInputFunctionOptionMent() {
-        println(Common.INPUT_FUNCTION_OPTION.getMessage())
+        println(Common.INPUT_OPTION_MENT.getMessage())
     }
 
     fun printErrorMessage(message: String) {

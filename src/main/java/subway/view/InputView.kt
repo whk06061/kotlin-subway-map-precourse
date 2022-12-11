@@ -3,11 +3,19 @@ package subway.view
 import subway.exception.Validator
 import java.util.*
 
-class InputView {
+object InputView {
     private val scanner = Scanner(System.`in`)
-    private val validator = Validator()
-    fun readFunctionOption(): String {
+    fun readMainMenuOption(): String {
         val input = scanner.nextLine()
-        return validator.checkMainMenuOptionInput(input)
+        return Validator.checkMainMenuOptionInput(input)
+    }
+
+    fun readManageStationMenuOption():String{
+        val input = scanner.nextLine()
+        return Validator.checkManageLineMenuOptionInput(input)
+    }
+
+    fun readStationName():String{
+        return scanner.nextLine()
     }
 }
