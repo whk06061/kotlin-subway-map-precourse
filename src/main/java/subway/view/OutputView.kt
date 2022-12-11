@@ -1,6 +1,7 @@
 package subway.view
 
 import subway.domain.ManageStationMenu
+import subway.domain.Station
 import subway.utils.constants.Common
 import subway.utils.constants.MainMenuMent
 import subway.utils.constants.ManageStationMenuMent
@@ -47,11 +48,16 @@ object OutputView {
     }
 
     fun printRemoveSuccessMent() {
-        println(ManageStationMenuMent.SUCCESS_REMOVE_STATION_MENT)
+        println(ManageStationMenuMent.SUCCESS_REMOVE_STATION_MENT.getMessage())
     }
 
     fun printErrorMessage(message: String) {
         println()
         println(message)
+    }
+
+    fun printStations(stations: List<Station>) {
+        println(ManageStationMenuMent.PRINT_STATIONS_MENT.getMessage())
+        stations.forEach { println("${Common.PREFIX_RESULT.getMessage()} ${it.name}") }
     }
 }

@@ -11,7 +11,9 @@ enum class ManageStationMenuMent(private val message: String) {
     SUCCESS_ADD_STATION_MENT("${Common.PREFIX_RESULT.getMessage()} 지하철 역이 등록되었습니다."),
 
     INPUT_REMOVE_STATION("${Common.PREFIX_MANUAL.getMessage()} 삭제할 역 이름을 입력하세요."),
-    SUCCESS_REMOVE_STATION_MENT("${Common.PREFIX_RESULT.getMessage()} 지하철 역이 삭제되었습니다.");
+    SUCCESS_REMOVE_STATION_MENT("${Common.PREFIX_RESULT.getMessage()} 지하철 역이 삭제되었습니다."),
+
+    PRINT_STATIONS_MENT("${Common.PREFIX_MANUAL.getMessage()} 역 목록");
 
     fun getMessage(): String {
         return this.message

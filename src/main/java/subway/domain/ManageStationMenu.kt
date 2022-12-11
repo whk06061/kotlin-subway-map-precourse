@@ -53,6 +53,6 @@ object ManageStationMenu {
     }
 
     fun printStation() {
-
+        OutputView.printStations(StationRepository.stations())
     }
 }
