@@ -60,5 +60,6 @@ class Controller {
     }
 
     private fun printMap() {
+        LineRepository.lines().forEach { OutputView.printMap(it) }
     }
 }
