@@ -7,6 +7,9 @@ import subway.view.OutputView
 
 class Controller {
 
+    private val inputView = InputView()
+    private val outputView = OutputView()
+
     fun operate() {
         while (true) {
             when (readMainMenuOption()) {
@@ -25,9 +28,9 @@ class Controller {
     }
 
     private fun readMainMenuOption(): String {
-        OutputView.printMainMenu()
-        OutputView.printInputFunctionOptionMent()
-        return RepeatInputProcess.repeat { InputView.readMainMenuOption() } as String
+        outputView.printMainMenu()
+        outputView.printInputFunctionOptionMent()
+        return RepeatInputProcess.repeat { inputView.readMainMenuOption() } as String
     }
 
     private fun goToManageStationMenu() {
@@ -60,6 +63,6 @@ class Controller {
     }
 
     private fun printMap() {
-        LineRepository.lines().forEach { OutputView.printMap(it) }
+        LineRepository.lines().forEach { outputView.printMap(it) }
     }
 }

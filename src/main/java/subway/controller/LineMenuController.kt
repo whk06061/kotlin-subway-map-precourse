@@ -10,63 +10,67 @@ import subway.view.OutputView
 
 class LineMenuController {
 
+    private val inputView = InputView()
+    private val outputView = OutputView()
+
     fun readlineMenuOption(): String {
-        OutputView.printLineMenu()
-        OutputView.printInputFunctionOptionMent()
-        return RepeatInputProcess.repeat { InputView.readLineMenuOption() } as String
+        outputView.printLineMenu()
+        outputView.printInputFunctionOptionMent()
+        return RepeatInputProcess.repeat { inputView.readLineMenuOption() } as String
     }
 
     fun addLine() {
-        OutputView.printAddLineMent()
-        val lineName = InputView.readLineName()
-        if (checkAddPossible(lineName)) {
-            val upTerminalName = readUpTerminal()
-            if (!checkAddTerminalPossible(upTerminalName)) return
-            val downTerminalName = readDownTerminal()
-            if (!checkAddTerminalPossible(downTerminalName)) return
+        val lineName = readLineName()
+        if (checkAddable(lineName)) {
+            val terminalNames = readTerminals()
             val line = Line(lineName)
-            line.addStation(StationRepository.stations().find { it.name == upTerminalName }!!)
-            line.addStation(StationRepository.stations().find { it.name == downTerminalName }!!)
+            terminalNames.forEach { terminalName ->
+                if (!checkTerminalAddable(terminalName)) return
+                line.addStation(StationRepository.stations().find { station -> station.name == terminalName }!!)
+            }
             LineRepository.addLine(line)
-            OutputView.printAddLineSuccessMent()
+            outputView.printAddLineSuccessMent()
         }
     }
 
-    private fun checkAddPossible(lineName: String): Boolean {
+    private fun readLineName(): String {
+        outputView.printAddLineMent()
+        return inputView.readLineName()
+    }
+
+    private fun checkAddable(lineName: String): Boolean {
         LineRepository.lines().find { it.name == lineName } ?: return true
-        OutputView.printErrorMessage(ErrorMessage.ALREADY_EXIST_LINE.getMessage())
+        outputView.printErrorMessage(ErrorMessage.ALREADY_EXIST_LINE.getMessage())
         return false
     }
 
-    private fun checkAddTerminalPossible(stationName: String): Boolean {
+    private fun checkTerminalAddable(stationName: String): Boolean {
         StationRepository.stations().find { it.name == stationName } ?: run {
-            OutputView.printErrorMessage(ErrorMessage.NOT_EXIST_STATION.getMessage())
+            outputView.printErrorMessage(ErrorMessage.NOT_EXIST_STATION.getMessage())
             return false
         }
         return true
     }
 
-    private fun readUpTerminal(): String {
-        OutputView.printInputUpTerminal()
-        return InputView.readTerminal()
-    }
-
-    private fun readDownTerminal(): String {
-        OutputView.printInputDownTerminal()
-        return InputView.readTerminal()
+    private fun readTerminals(): List<String> {
+        outputView.printInputUpTerminal()
+        val upTerminal = inputView.readTerminal()
+        outputView.printInputDownTerminal()
+        val downTerminal = inputView.readTerminal()
+        return listOf(upTerminal, downTerminal)
     }
 
     fun removeLine() {
-        OutputView.printRemoveLineMent()
-        val lineName = InputView.readLineName()
+        outputView.printRemoveLineMent()
+        val lineName = inputView.readLineName()
         if (LineRepository.deleteLineByName(lineName)) {
-            OutputView.printRemoveLineSuccessMent()
+            outputView.printRemoveLineSuccessMent()
             return
         }
-        OutputView.printErrorMessage(ErrorMessage.NOT_EXIST_LINE.getMessage())
+        outputView.printErrorMessage(ErrorMessage.NOT_EXIST_LINE.getMessage())
     }
 
     fun printLine() {
-        OutputView.printLines(LineRepository.lines())
+        outputView.printLines(LineRepository.lines())
     }
 }

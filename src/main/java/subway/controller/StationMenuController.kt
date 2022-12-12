@@ -10,45 +10,48 @@ import subway.view.OutputView
 
 class StationMenuController {
 
+    private val inputView = InputView()
+    private val outputView = OutputView()
+
     fun readStationMenuOption(): String {
-        OutputView.printStationMenu()
-        OutputView.printInputFunctionOptionMent()
-        return RepeatInputProcess.repeat { InputView.readStationMenuOption() } as String
+        outputView.printStationMenu()
+        outputView.printInputFunctionOptionMent()
+        return RepeatInputProcess.repeat { inputView.readStationMenuOption() } as String
     }
 
     fun addStation() {
-        OutputView.printAddStationMent()
-        val stationName = InputView.readStationName()
-        if (checkAddPossible(stationName)) {
+        outputView.printAddStationMent()
+        val stationName = inputView.readStationName()
+        if (checkAddable(stationName)) {
             StationRepository.addStation(Station(stationName))
-            OutputView.printAddStationSuccessMent()
+            outputView.printAddStationSuccessMent()
         }
     }
 
-    private fun checkAddPossible(addStationName: String): Boolean {
+    private fun checkAddable(addStationName: String): Boolean {
         StationRepository.stations().find { station -> station.name == addStationName } ?: return true
-        OutputView.printErrorMessage(ErrorMessage.ALREADY_EXIST_STATION.getMessage())
+        outputView.printErrorMessage(ErrorMessage.ALREADY_EXIST_STATION.getMessage())
         return false
     }
 
     fun removeStation() {
-        OutputView.printRemoveStationMent()
-        val stationName = InputView.readStationName()
-        if (checkRemovePossible(stationName)) {
+        outputView.printRemoveStationMent()
+        val stationName = inputView.readStationName()
+        if (checkRemovable(stationName)) {
             if (StationRepository.deleteStation(stationName)) {
-                OutputView.printRemoveStationSuccessMent()
+                outputView.printRemoveStationSuccessMent()
                 return
             }
-            OutputView.printErrorMessage(ErrorMessage.NOT_EXIST_STATION.getMessage())
+            outputView.printErrorMessage(ErrorMessage.NOT_EXIST_STATION.getMessage())
         }
     }
 
-    private fun checkRemovePossible(removeStationName: String): Boolean {
+    private fun checkRemovable(removeStationName: String): Boolean {
         // 노선에 등록된 역인지 검사
         val station = StationRepository.stations().find { it.name == removeStationName }
         LineRepository.lines().forEach { line ->
             if (station in line.stations()) {
-                OutputView.printErrorMessage(ErrorMessage.STATION_IN_LINE.getMessage())
+                outputView.printErrorMessage(ErrorMessage.STATION_IN_LINE.getMessage())
                 return false
             }
         }
@@ -56,6 +59,6 @@ class StationMenuController {
     }
 
     fun printStation() {
-        OutputView.printStations(StationRepository.stations())
+        outputView.printStations(StationRepository.stations())
     }
 }

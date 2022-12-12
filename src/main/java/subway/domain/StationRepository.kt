@@ -5,7 +5,7 @@ import java.util.*
 object StationRepository {
     private val stations: MutableList<Station> = ArrayList()
     fun stations(): List<Station> {
-        return Collections.unmodifiableList(stations)
+        return stations
     }
 
     fun addStation(station: Station) {

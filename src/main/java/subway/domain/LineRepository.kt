@@ -5,7 +5,7 @@ import java.util.*
 object LineRepository {
     private val lines: MutableList<Line> = ArrayList()
     fun lines(): List<Line> {
-        return Collections.unmodifiableList(lines)
+        return lines
     }
 
     fun addLine(line: Line) {
