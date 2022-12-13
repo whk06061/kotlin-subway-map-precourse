@@ -154,11 +154,11 @@ class OutputView {
 
     // Map
     fun printMap(line: Line) {
+        println()
         println("${Common.PREFIX_RESULT.getMessage()} ${line.name}")
         println("${Common.PREFIX_RESULT.getMessage()} ---")
         line.stations().forEach {
             println("${Common.PREFIX_RESULT.getMessage()} ${it.name}")
         }
-        println()
     }
 }
