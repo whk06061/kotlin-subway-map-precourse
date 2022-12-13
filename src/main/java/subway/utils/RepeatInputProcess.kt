@@ -4,12 +4,13 @@ import subway.view.OutputView
 import java.lang.IllegalArgumentException
 
 object RepeatInputProcess {
+    private val outputView = OutputView()
     fun repeat(inputProcess: () -> Any): Any {
         while (true) {
             try {
                 return inputProcess()
             } catch (e: IllegalArgumentException) {
-                OutputView.printErrorMessage(e.message.toString())
+                outputView.printErrorMessage(e.message.toString())
             }
         }
     }
